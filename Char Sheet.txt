@@ -1,0 +1,10 @@
+Walls
+╔
+═
+║
+╗
+╚
+╝
+
+Character
+☺
