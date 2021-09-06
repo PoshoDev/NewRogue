@@ -1,17 +1,43 @@
 Walls
-╔
-═
-║
-╗
-╚
-╝
+-
+|
+
+Corridor
+#
+
+Floor
+.
+
+Door
++
 
 Character
-☺
+@
 
-125
-120
-
----
-
-123
+Enemies
+A - Aquator
+B - Bat
+C - Centaur
+D - Dragon
+E - Emu
+F - Venus Flytrap
+G - Griffin
+H - Hobgoblin
+I - Ice Monster
+J - Jabberwock
+K - Kestrel - OK
+L - Leprachaun
+M - Medusa
+N - Nymph
+O - Orc
+P - Phantom
+Q - Quagga
+R - Rattlesnake
+S - Snake
+T - Troll
+U - Ur-vile
+V - Vampire
+W - Wraith
+X - Xeroc
+Y - Yeti
+Z - Zombie
