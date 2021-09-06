@@ -11,7 +11,6 @@ public class GameDirector : MonoBehaviour
     public GameObject paredes;
     public GameObject error;
     public GameObject floor;
-    public TextAsset textFile;
 	
     public Sprite rogue;
     public Sprite bat;
@@ -26,6 +25,8 @@ public class GameDirector : MonoBehaviour
     public Sprite snake;
     public Sprite stairs;
     public Sprite sword;
+	public Sprite wand;
+	public Sprite armor;
     public Sprite unknown;
 	
     public TMP_Text texto;
@@ -37,7 +38,6 @@ public class GameDirector : MonoBehaviour
     {
         Camera=GameObject.FindGameObjectWithTag("MainCamera");
         RefreshScreen();
-		//CallPy("");
     }
     public void RefreshScreen()
     {
@@ -45,9 +45,9 @@ public class GameDirector : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        string text = textFile.text;  //this is the content as string
+        //string text = textFile.text;  //this is the content as string
         
-		using (StringReader sr = new StringReader(text))
+		using (TextReader sr = File.OpenText("data.txt"))
         {
             int count = 0;
             string line;
@@ -130,17 +130,31 @@ public class GameDirector : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("8")) CallPy("k");
-            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown("2")) CallPy("j");
-            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown("4")) CallPy("h");
-            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown("2")) CallPy("l");
+            if 		(Input.GetKeyDown(KeyCode.UpArrow)   || Input.GetKeyDown(KeyCode.Keypad8)) CallPy("K");
+            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.Keypad2)) CallPy("J");
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Keypad4)) CallPy("H");
+            else if (Input.GetKeyDown(KeyCode.RightArrow)|| Input.GetKeyDown(KeyCode.Keypad6)) CallPy("L");
+			
+			else if (Input.GetKeyDown(KeyCode.Keypad7)) CallPy("Y");
+            else if (Input.GetKeyDown(KeyCode.Keypad9)) CallPy("U");
+            else if (Input.GetKeyDown(KeyCode.Keypad1)) CallPy("B");
+            else if (Input.GetKeyDown(KeyCode.Keypad3)) CallPy("N");			
         }
         else 
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("8")) CallPy("k");
-            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown("2")) CallPy("j");
-            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown("4")) CallPy("h");
-            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown("2")) CallPy("l");
+            if (Input.GetKeyDown(KeyCode.UpArrow) 		 || Input.GetKeyDown(KeyCode.Keypad8)) CallPy("k");
+            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.Keypad2)) CallPy("j");
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Keypad4)) CallPy("h");
+            else if (Input.GetKeyDown(KeyCode.RightArrow)|| Input.GetKeyDown(KeyCode.Keypad6)) CallPy("l");
+			
+			else if (Input.GetKeyDown(KeyCode.Keypad7)) CallPy("y");
+            else if (Input.GetKeyDown(KeyCode.Keypad9)) CallPy("u");
+            else if (Input.GetKeyDown(KeyCode.Keypad1)) CallPy("b");
+            else if (Input.GetKeyDown(KeyCode.Keypad3)) CallPy("n");
+			
+			else if (Input.GetKeyDown(KeyCode.Space)) CallPy("space");
+			else if (Input.GetKeyDown("p"))			  CallPy(",");
+			else if (Input.GetKeyDown("c"))			  CallPy(">");
         }
     }
 	
