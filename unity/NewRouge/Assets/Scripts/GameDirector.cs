@@ -13,7 +13,10 @@ public class GameDirector : MonoBehaviour
     public GameObject floor;
     public TextAsset textFile;
     // Start is called before the first frame update
-
+    private void Start()
+    {
+        RefreshScreen();
+    }
     public void RefreshScreen()
     {
         foreach (Transform child in transform)
@@ -76,7 +79,7 @@ public class GameDirector : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow))
 			CallPy(root + "input_right.py");
 			
-        RefreshScreen();
+       
     }
 	
 	private void CallPy (string fname) {
@@ -84,5 +87,6 @@ public class GameDirector : MonoBehaviour
 		foo.StartInfo.FileName = fname;
 		foo.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 		foo.Start();
+        RefreshScreen();
     }
 }

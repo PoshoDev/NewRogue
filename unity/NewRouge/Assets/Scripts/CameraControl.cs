@@ -11,19 +11,27 @@ public class CameraControl : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + (float)0.1);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z +speed);
         }
         if (Input.GetKey("a"))
         {
-            transform.position = new Vector3(transform.position.x - (float)0.1, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
         }
         if (Input.GetKey("s"))
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (float)0.1);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
         }
         if (Input.GetKey("d"))
         {
-            transform.position = new Vector3(transform.position.x + (float)0.1, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            transform.position = new Vector3(transform.position.x , transform.position.y-speed, transform.position.z);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + speed, transform.position.z);
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
@@ -35,7 +43,7 @@ public class CameraControl : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-            transform.eulerAngles += speed*new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);        
+            transform.eulerAngles += 3*speed*new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);        
         }
 
     }

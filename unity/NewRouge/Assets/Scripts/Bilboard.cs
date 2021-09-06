@@ -10,10 +10,11 @@ public class Bilboard : MonoBehaviour
     {
         originalRotation = transform.rotation;
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
+
     }
     private void Update()
     {
-        transform.rotation = cameraTransform.rotation*originalRotation;
-        
+        gameObject.transform.rotation = cameraTransform.rotation * originalRotation;
     }
+    
 }
