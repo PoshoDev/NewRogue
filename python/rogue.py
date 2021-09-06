@@ -24,15 +24,7 @@ def extract(win):
     ag.moveTo(x=ed_x, y=ed_y)
     ag.mouseUp()
     
-    ag.keyDown("ctrl")
-    ag.keyDown("shift")
-    ag.keyDown("c")
-    
-    ag.keyUp("control")
-    ag.keyUp("shift")
-    ag.keyUp("c")
-    
-    ag.keyUp("shift")
+    ag.hotkey('ctrl', 'shift', 'c')
     
     cb.OpenClipboard()
     data = cb.GetClipboardData()
@@ -41,13 +33,11 @@ def extract(win):
     fr = 0
     to = 119
     amount = 120
-    
     f = open("demo.txt", "w")
     for i in range(23):
         f.write(data[fr:to] + '\n')
         fr = to + 1
         to += amount
-        
     f.close()
     
 if __name__ == "__main__":
