@@ -12,6 +12,7 @@ public class GameDirector : MonoBehaviour
     public GameObject error;
     public GameObject floor;
     public TextAsset textFile;
+	
     public Sprite rogue;
     public Sprite bat;
     public Sprite emu;
@@ -26,8 +27,11 @@ public class GameDirector : MonoBehaviour
     public Sprite stairs;
     public Sprite sword;
     public Sprite unknown;
+	
     public TMP_Text texto;
     public TMP_Text texto2;
+	
+	
     // Start is called before the first frame update
     private void Start()
     {
@@ -95,9 +99,7 @@ public class GameDirector : MonoBehaviour
 
     Sprite getType(char ch)
     {
-		
-		
-        switch (ch)
+		switch (ch)
         {
             case '@': return rogue;	break;
             case 'B': return bat; break;
@@ -129,15 +131,18 @@ public class GameDirector : MonoBehaviour
 			CallPy(root + "input_left.py");
         else if (Input.GetKeyDown(KeyCode.RightArrow))
 			CallPy(root + "input_right.py");
-			
-       
     }
+	
+	IEnumerator waiter(){
+		yield return new WaitForSecondsRealtime(1);
+		RefreshScreen();
+	}
 	
 	private void CallPy (string fname) {
 		Process foo = new Process();
 		foo.StartInfo.FileName = fname;
 		foo.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 		foo.Start();
-        RefreshScreen();
+		StartCoroutine(waiter());
     }
 }

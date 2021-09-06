@@ -1,6 +1,7 @@
 import pyautogui as ag
 import win32clipboard as cb
 import window
+import pygetwindow as gw
 
 def main():
     extract(window.getWindow())
@@ -31,11 +32,13 @@ def extract(win):
     amount = 120
     root = "C:\\Users\\green\\Desktop\\NewRogue\\unity\\newRouge\\Assets\\"
     f = open(root+"dato.txt", "w")
-    for i in range(23):
+    for i in range(24):
         f.write(data[fr:to] + '\n')
         fr = to + 1
         to += amount
     f.close()
+    
+    win.minimize()
     
 if __name__ == "__main__":
     main()
