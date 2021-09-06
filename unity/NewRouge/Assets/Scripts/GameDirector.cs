@@ -32,35 +32,40 @@ public class GameDirector : MonoBehaviour
             while ((line = sr.ReadLine()) != null)
             {
                 for (int i = 0; i < line.Length; i++)
-                    if (line[i] != ' ' && line[i] != '.')
-                    {
-                        float _x = (float)i;
-                        float _y = (float)0.5;
-                        float _z = -(float)count;
-                        GameObject a = Instantiate(getType(line[i]));
-                        a.transform.parent = transform;
-                        a.transform.localPosition = new Vector3(_x, _y, _z);
-                    }
-                    else if (line[i] == '.') 
-                    {
-                        float _x = (float)i;
-                        float _y = 0;
-                        float _z = -(float)count;
-                        GameObject a = Instantiate(floor);
-                        a.transform.parent = transform;
-                        a.transform.localPosition = new Vector3(_x, _y, _z);
-                    }
+					switch(line[i]) {
+						case ' ':
+						break;
+						
+						case '.':
+							spawn(floor, (float)i, (float)0.0, (float)count);
+						break;
+						
+						case '|':
+						case '-':
+							spawn(paredes, (float)i, (float)0.5, (float)count);
+						break;
+						
+						default:
+							spawn(getType(line[i]), (float)i, (float)0.0, (float)count);
+							spawn(floor, (float)i, (float)0.0, (float)count);
+						break;
+					}
+				
                 count++;
             }
         }
     }
+	
+	void spawn(GameObject obj, float _x, float _y, float _z) {
+		GameObject a = Instantiate(obj);
+        a.transform.parent = transform;
+        a.transform.localPosition = new Vector3(_x, _y, _z);
+	}
 
     GameObject getType(char ch)
     {
         switch (ch)
         {
-            case '|':
-            case '-': return paredes; break;
             case '@': return player; break;
             default:  return error; break;
         }
