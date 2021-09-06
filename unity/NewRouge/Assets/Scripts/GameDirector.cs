@@ -46,7 +46,8 @@ public class GameDirector : MonoBehaviour
 						break;
 						
 						default:
-							spawn(getType(line[i]), (float)i, (float)0.0, (float)count);
+							GameObject a = spawn(player, (float)i, (float)0.0, (float)count);
+							a.GetComponent<Sprite>(getType(line[i]));
 							spawn(floor, (float)i, (float)0.0, (float)count);
 						break;
 					}
@@ -56,19 +57,25 @@ public class GameDirector : MonoBehaviour
         }
     }
 	
-	void spawn(GameObject obj, float _x, float _y, float _z) {
+	GameObject spawn(GameObject obj, float _x, float _y, float _z) {
 		GameObject a = Instantiate(obj);
         a.transform.parent = transform;
         a.transform.localPosition = new Vector3(_x, _y, _z);
 	}
 
-    GameObject getType(char ch)
+    Sprite getType(char ch)
     {
+		string path = "Assets/Sprites/";
+		string ext = ".png";
+		string spr;
+		
         switch (ch)
         {
-            case '@': return player; break;
-            default:  return error; break;
+            case '@':	spr = "rogue";		break;
+			default:	spr = "unknown";	break;
         }
+		
+		return Resources.Load<Sprite>(path+spr+ext);
     }
 
     // Update is called once 
