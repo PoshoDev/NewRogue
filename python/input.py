@@ -1,7 +1,8 @@
 import pyautogui as ag
 import window, refresh
+import sys
 
-def input(key):
-    win = window.getWindow()
-    ag.press(key)
-    refresh.extract(win)
+win = window.getWindow()
+if (sys.argv[1] != ""):
+    ag.press(sys.argv[1])
+refresh.extract(win)

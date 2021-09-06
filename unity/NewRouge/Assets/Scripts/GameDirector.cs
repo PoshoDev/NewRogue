@@ -35,7 +35,7 @@ public class GameDirector : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        RefreshScreen();
+		CallPy("");
     }
     public void RefreshScreen()
     {
@@ -44,8 +44,8 @@ public class GameDirector : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         string text = textFile.text;  //this is the content as string
-        //Debug.Log(text);
-        using (StringReader sr = new StringReader(text))
+        
+		using (StringReader sr = new StringReader(text))
         {
             int count = 0;
             string line;
@@ -116,21 +116,15 @@ public class GameDirector : MonoBehaviour
             case '%': return stairs; break;
             default: return unknown; break;
         }
-		
     }
 
     // Update is called once 
     private void Update()
     {
-		string root = "C:\\Users\\green\\Desktop\\NewRogue\\python\\";
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-			CallPy(root + "input_up.py");
-		else if (Input.GetKeyDown(KeyCode.DownArrow))
-			CallPy(root + "input_down.py");
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-			CallPy(root + "input_left.py");
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-			CallPy(root + "input_right.py");
+        if 		(Input.GetKeyDown(KeyCode.UpArrow))		CallPy("k");
+		else if (Input.GetKeyDown(KeyCode.DownArrow))	CallPy("j");
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))	CallPy("h");
+        else if (Input.GetKeyDown(KeyCode.RightArrow))	CallPy("l");
     }
 	
 	IEnumerator waiter(){
@@ -138,10 +132,12 @@ public class GameDirector : MonoBehaviour
 		RefreshScreen();
 	}
 	
-	private void CallPy (string fname) {
+	private void CallPy (string ch) {
+		string fname = "C:\\Users\\green\\Desktop\\NewRogue\\python\\input.py";
 		Process foo = new Process();
 		foo.StartInfo.FileName = fname;
 		foo.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+		foo.StartInfo.Arguments = ch;
 		foo.Start();
 		StartCoroutine(waiter());
     }
