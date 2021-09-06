@@ -37,26 +37,18 @@ def extract(win):
     cb.OpenClipboard()
     data = cb.GetClipboardData()
     cb.CloseClipboard()
+    
     fr = 0
     to = 119
-    print(data[fr:to] + "n")
-    
-    fr, to = inc(data, fr, to, 120)
-    fr, to = inc(data, fr, to, 120)
-    fr, to = inc(data, fr, to, 120)
-    fr, to = inc(data, fr, to, 120)
-    fr, to = inc(data, fr, to, 120)
-    fr, to = inc(data, fr, to, 120)
+    amount = 120
     
     f = open("demo.txt", "w")
-    f.write(data)
+    for i in range(23):
+        f.write(data[fr:to] + '\n')
+        fr = to + 1
+        to += amount
+        
     f.close()
-    
-def inc(data, fr, to, amount):
-    fr = to+1
-    to += amount
-    print(data[fr:to] + "n")
-    return fr, to
     
 if __name__ == "__main__":
     main()
