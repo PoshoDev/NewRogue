@@ -5,29 +5,38 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public float speed;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("w")) 
+        if (Input.GetKey("w"))
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x , gameObject.transform.position.y, gameObject.transform.position.z+(float)0.1);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + (float)0.1);
         }
         if (Input.GetKey("a"))
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x - (float)0.1, gameObject.transform.position.y, gameObject.transform.position.z);
+            transform.position = new Vector3(transform.position.x - (float)0.1, transform.position.y, transform.position.z);
         }
         if (Input.GetKey("s"))
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x , gameObject.transform.position.y, gameObject.transform.position.z - (float)0.1);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (float)0.1);
         }
         if (Input.GetKey("d"))
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x + (float)0.1, gameObject.transform.position.y, gameObject.transform.position.z);
+            transform.position = new Vector3(transform.position.x + (float)0.1, transform.position.y, transform.position.z);
         }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            GetComponent<Camera>().fieldOfView--;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            GetComponent<Camera>().fieldOfView++;
+        }
+        if (Input.GetMouseButton(0))
+        {
+            transform.eulerAngles += speed*new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);        
+        }
+
     }
 }

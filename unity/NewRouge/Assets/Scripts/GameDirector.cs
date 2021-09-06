@@ -7,6 +7,7 @@ public class GameDirector : MonoBehaviour
     public GameObject player;
     public GameObject paredes;
     public GameObject error;
+    public GameObject floor;
     public TextAsset textFile;
     // Start is called before the first frame update
 
@@ -24,13 +25,22 @@ public class GameDirector : MonoBehaviour
             string line;
             while ((line = sr.ReadLine()) != null)
             {
-                for (int i  = 0; i < line.Length - 1; i++)
-                    if (line[i] != ' '&& line[i]!= '.')
+                for (int i = 0; i < line.Length; i++)
+                    if (line[i] != ' ' && line[i] != '.')
                     {
                         float _x = (float)i;
                         float _y = (float)0.5;
                         float _z = -(float)count;
                         GameObject a = Instantiate(getType(line[i]));
+                        a.transform.parent = transform;
+                        a.transform.localPosition = new Vector3(_x, _y, _z);
+                    }
+                    else if (line[i] == '.') 
+                    {
+                        float _x = (float)i;
+                        float _y = 0;
+                        float _z = -(float)count;
+                        GameObject a = Instantiate(floor);
                         a.transform.parent = transform;
                         a.transform.localPosition = new Vector3(_x, _y, _z);
                     }
@@ -46,7 +56,7 @@ public class GameDirector : MonoBehaviour
             case '|':
             case '-': return paredes; break;
             case '@': return player; break;
-            default:    return error; break;
+            default:  return error; break;
         }
     }
 
