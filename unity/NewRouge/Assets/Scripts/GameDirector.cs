@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+
+using System.Diagnostics;
+ 
 public class GameDirector : MonoBehaviour
 {
     public GameObject player;
@@ -61,23 +64,25 @@ public class GameDirector : MonoBehaviour
     }
 
     // Update is called once 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow)) 
-        {
-        
-        }else if (Input.GetKey(KeyCode.DownArrow))
-        {
-
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-
-        }
-            RefreshScreen();
+		string root = "C:\\Users\\green\\Desktop\\NewRogue\\python\\";
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+			CallPy(root + "input_up.py");
+		else if (Input.GetKeyDown(KeyCode.DownArrow))
+			CallPy(root + "input_down.py");
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+			CallPy(root + "input_left.py");
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+			CallPy(root + "input_right.py");
+			
+        RefreshScreen();
+    }
+	
+	private void CallPy (string fname) {
+		Process foo = new Process();
+		foo.StartInfo.FileName = fname;
+		foo.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+		foo.Start();
     }
 }
