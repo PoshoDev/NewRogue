@@ -45,7 +45,6 @@ public class GameDirector : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        //string text = textFile.text;  //this is the content as string
         
 		using (TextReader sr = File.OpenText("data.txt"))
         {
@@ -164,7 +163,7 @@ public class GameDirector : MonoBehaviour
 	}
 	
 	private void CallPy (string ch) {
-		string fname = "C:\\Users\\green\\Desktop\\NewRogue\\python\\input.py";
+		string fname = "D:\\Posho\\Projects\\Games\\NewRogue\\python\\input.py";
 		Process foo = new Process();
 		foo.StartInfo.FileName = fname;
 		foo.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
