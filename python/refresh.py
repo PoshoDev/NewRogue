@@ -1,13 +1,9 @@
-import pygetwindow as gw
 import pyautogui as ag
 import win32clipboard as cb
+import window
 
 def main():
-    window = gw.getWindowsWithTitle("rogue.exe")[0]
-    window.activate()
-    window.moveTo(0, 0)
-
-    extract(window)
+    extract(window.getWindow())
 
 # Functions
 def extract(win):

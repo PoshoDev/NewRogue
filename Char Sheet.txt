@@ -11,21 +11,24 @@ Floor
 Door
 +
 
+Stair
+%
+
 Character
 @
 
 Enemies
 A - Aquator
-B - Bat
+B - Bat				OK
 C - Centaur
 D - Dragon
-E - Emu
+E - Emu				OK
 F - Venus Flytrap
 G - Griffin
-H - Hobgoblin
-I - Ice Monster
+H - Hobgoblin		OK
+I - Ice Monster		OK
 J - Jabberwock
-K - Kestrel - OK
+K - Kestrel			OK
 L - Leprachaun
 M - Medusa
 N - Nymph
@@ -33,7 +36,7 @@ O - Orc
 P - Phantom
 Q - Quagga
 R - Rattlesnake
-S - Snake
+S - Snake			OK
 T - Troll
 U - Ur-vile
 V - Vampire
@@ -41,3 +44,17 @@ W - Wraith
 X - Xeroc
 Y - Yeti
 Z - Zombie
+
+---
+
+? - Scroll
+* - Gold
+: - Food
+! - Potion
+) - Sword
+
+---
+
+i		Inventory
+CAPS	Max Speed
+
