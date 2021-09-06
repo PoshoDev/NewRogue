@@ -156,7 +156,6 @@ MonoBehaviour:
   paredes: {fileID: 8262117555424759503, guid: 753ef7e817fef7b4f9936d159edb323c, type: 3}
   error: {fileID: 1320414007621500031, guid: 9776474b755730342a6b27cdb6454985, type: 3}
   floor: {fileID: 9003318651116494467, guid: fde045dc790b5b24ab84d13aa0595e7d, type: 3}
-  textFile: {fileID: 4900000, guid: 5575bb3b8a5e27545a98630fefff5b79, type: 3}
   rogue: {fileID: 21300000, guid: 80a7b70786e93e847a4310bf5b45d1a9, type: 3}
   bat: {fileID: 21300000, guid: ba39b456c60d6a143938e196bc1526d6, type: 3}
   emu: {fileID: 21300000, guid: db1afbb0fd8ae414da4e31b2c65c7053, type: 3}
@@ -170,6 +169,8 @@ MonoBehaviour:
   snake: {fileID: 21300000, guid: 92b8a9a84cf67734aade5e985dc52f5b, type: 3}
   stairs: {fileID: 21300000, guid: 88f04eb9fda0c6c4d8ad1e6007689b48, type: 3}
   sword: {fileID: 21300000, guid: 2400761b9ef651f45b92bbbae57185eb, type: 3}
+  wand: {fileID: 21300000, guid: 92cfb0f6382ed2943bcd336b7325f7e2, type: 3}
+  armor: {fileID: 21300000, guid: df6112d5d805fda46b40827a24ee59c9, type: 3}
   unknown: {fileID: 21300000, guid: 3ce10d04be44e974f9ecf2e42054cc56, type: 3}
   texto: {fileID: 438842838}
   texto2: {fileID: 824527313}
@@ -279,16 +280,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438842836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 774958942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -354, y: 327}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -566, y: 492}
+  m_SizeDelta: {x: -1720, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438842838
 MonoBehaviour:
@@ -607,16 +608,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824527311}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 774958942}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -354, y: -218}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -589, y: -377}
+  m_SizeDelta: {x: -1720, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824527313
 MonoBehaviour:
