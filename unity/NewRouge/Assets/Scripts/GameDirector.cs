@@ -10,7 +10,7 @@ public class GameDirector : MonoBehaviour
     public TextAsset textFile;
     // Start is called before the first frame update
 
-    public void ReadString()
+    public void RefreshScreen()
     {
         foreach (Transform child in transform)
         {
@@ -51,8 +51,23 @@ public class GameDirector : MonoBehaviour
     }
 
     // Update is called once 
-    void Start()
+    private void FixedUpdate()
     {
-        ReadString();
+        if (Input.GetKey(KeyCode.UpArrow)) 
+        {
+        
+        }else if (Input.GetKey(KeyCode.DownArrow))
+        {
+
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+
+        }
+            RefreshScreen();
     }
 }
