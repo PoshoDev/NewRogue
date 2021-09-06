@@ -29,7 +29,8 @@ def extract(win):
     fr = 0
     to = 119
     amount = 120
-    f = open("demo.txt", "w")
+    root = "C:\\Users\\green\\Desktop\\NewRogue\\unity\\newRouge\\Assets\\"
+    f = open(root+"dato.txt", "w")
     for i in range(23):
         f.write(data[fr:to] + '\n')
         fr = to + 1
