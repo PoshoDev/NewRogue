@@ -75,7 +75,7 @@ public class GameDirector : MonoBehaviour
 
                             case '|':
                             case '-':
-                                spawn(paredes, (float)i, (float)0.5, (float)count);
+                                spawn(paredes, (float)i, -(float)0.5, (float)count);
                                 break;
 
                             default:

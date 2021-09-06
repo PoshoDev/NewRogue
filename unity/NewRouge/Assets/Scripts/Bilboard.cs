@@ -14,7 +14,8 @@ public class Bilboard : MonoBehaviour
     }
     private void Update()
     {
-        gameObject.transform.rotation = cameraTransform.rotation * originalRotation;
+        transform.LookAt(cameraTransform);
+        transform.eulerAngles = new Vector3(0,transform.eulerAngles.y, 0);
     }
     
 }
