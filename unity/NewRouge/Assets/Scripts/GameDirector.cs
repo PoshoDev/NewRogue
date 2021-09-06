@@ -30,12 +30,14 @@ public class GameDirector : MonoBehaviour
 	
     public TMP_Text texto;
     public TMP_Text texto2;
-	
+    private GameObject Camera;
 	
     // Start is called before the first frame update
     private void Start()
     {
-		CallPy("");
+        Camera=GameObject.FindGameObjectWithTag("MainCamera");
+        RefreshScreen();
+		//CallPy("");
     }
     public void RefreshScreen()
     {
@@ -82,6 +84,11 @@ public class GameDirector : MonoBehaviour
                                 GameObject a = spawn(player, (float)i, (float)0.0, (float)count);
                                 a.GetComponent<SpriteRenderer>().sprite = getType(line[i]);
                                 spawn(floor, (float)i, (float)0.0, (float)count);
+                                if (a.GetComponent<SpriteRenderer>().sprite == rogue) 
+                                {
+                                    Camera.transform.position = new Vector3(a.transform.position.x, a.transform.position.y+5, a.transform.position.z-6);
+                                    Camera.transform.LookAt(a.transform);
+                                }
                                 break;
                         }
                 }
@@ -121,10 +128,20 @@ public class GameDirector : MonoBehaviour
     // Update is called once 
     private void Update()
     {
-        if 		(Input.GetKeyDown(KeyCode.UpArrow))		CallPy("k");
-		else if (Input.GetKeyDown(KeyCode.DownArrow))	CallPy("j");
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))	CallPy("h");
-        else if (Input.GetKeyDown(KeyCode.RightArrow))	CallPy("l");
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("8")) CallPy("k");
+            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown("2")) CallPy("j");
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown("4")) CallPy("h");
+            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown("2")) CallPy("l");
+        }
+        else 
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("8")) CallPy("k");
+            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown("2")) CallPy("j");
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown("4")) CallPy("h");
+            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown("2")) CallPy("l");
+        }
     }
 	
 	IEnumerator waiter(){
